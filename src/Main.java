@@ -9,7 +9,9 @@ public class Main extends Canvas implements Runnable {
     private List<Point> pointList = new LinkedList<>();
     private List<Circle> verticals = new LinkedList<>();
     private List<Circle> horizontals = new LinkedList<>();
+
     private Color[] col = {Color.red, Color.blue, Color.green, Color.pink, Color.orange};
+
     private Thread thread;
     private boolean isRunning = false;
 
@@ -72,10 +74,12 @@ public class Main extends Canvas implements Runnable {
     }
 
     private void tick() {
+
         for (int i = 0; i < 5; i++) {
             verticals.get(i).update(i + 1);
             horizontals.get(i).update(i + 1);
         }
+
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (!pointList.contains(new Point(horizontals.get(j).px, verticals.get(i).py))) {
